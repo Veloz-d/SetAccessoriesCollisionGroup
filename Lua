@@ -1,0 +1,22 @@
+local module = {}
+local PhysicsService = game:GetService("PhysicsService")
+
+local function AddAccessories(Character)
+	local Accessories = Character.Humanoid:GetAccessories()
+
+	for I, V in pairs(Accessories) do
+		PhysicsService:SetPartCollisionGroup(V.Handle, "Hats")
+	end
+end
+
+for I,Player in pairs(game:GetService("Players"):GetPlayers()) do
+	Player.CharacterAppearanceLoaded:Connect(AddAccessories)
+end
+
+local function OnPlayerAdded(Player)
+	Player.CharacterAppearanceLoaded:Connect(AddAccessories)
+end
+
+game:GetService("Players").PlayerAdded:Connect(OnPlayerAdded)
+
+return module
