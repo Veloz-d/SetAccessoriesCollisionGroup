@@ -1,4 +1,3 @@
-local module = {}
 local PhysicsService = game:GetService("PhysicsService")
 
 local function AddAccessories(Character)
@@ -19,4 +18,4 @@ end
 
 game:GetService("Players").PlayerAdded:Connect(OnPlayerAdded)
 
-return module
+-- This is not a module, I don't know how to rename github files
