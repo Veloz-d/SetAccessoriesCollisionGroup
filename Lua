@@ -17,5 +17,3 @@ local function OnPlayerAdded(Player)
 end
 
 game:GetService("Players").PlayerAdded:Connect(OnPlayerAdded)
-
--- This is not a module, I don't know how to rename github repositories
