@@ -1,15 +1,11 @@
 local PhysicsService = game:GetService("PhysicsService")
 
 local function AddAccessories(Character)
-	local Accessories = Character.Humanoid:GetAccessories()
+	local Accessories = Character:WaitForChild("Humanoid"):GetAccessories()
 
-	for _, V in pairs(Accessories) do
-		PhysicsService:SetPartCollisionGroup(V.Handle, "Hats")
+	for _, Accessory in pairs(Accessories) do
+		PhysicsService:SetPartCollisionGroup(Accessory.Handle, "Hats")
 	end
-end
-
-for _, Player in pairs(game:GetService("Players"):GetPlayers()) do
-	Player.CharacterAppearanceLoaded:Connect(AddAccessories)
 end
 
 local function OnPlayerAdded(Player)
